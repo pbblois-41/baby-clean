@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact - Baby Clean</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0faff; text-align: center; margin: 0; }
+        header { background: linear-gradient(to right, #0067b8, #00a0e9); padding: 25px; border-bottom: 5px solid #d32f2f; }
+        nav a { color: white; margin: 0 20px; text-decoration: none; font-weight: bold; text-transform: uppercase; }
+        nav a:hover { text-decoration: underline; }
+
+        h1 { color: #d32f2f; margin-top: 40px; font-size: 2.8em; }
+        p { color: #555; font-size: 1.1em; }
+
+        .box {
+            background: white;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin: 15px 0 5px;
+            font-weight: bold;
+            color: #0067b8;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 15px;
+            border: 2px solid #00a0e9;
+            font-size: 1em;
+        }
+
+        textarea { resize: none; height: 120px; }
+
+        button {
+            margin-top: 25px;
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        button:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="index.html">ACCUEIL</a>
+        <a href="equipe.html">NOTRE ÉQUIPE</a>
+        <a href="commande.html">COMMANDE</a>
+        <a href="contact.html">CONTACT</a>
+    </nav>
+</header>
+
+<h1>Nous contacter 📞</h1>
+<p>Une question ? Une urgence ? Un bébé en roue libre ?</p>
+
+<div class="box">
+    <form>
+        <label>Votre nom</label>
+        <input type="text" placeholder="Parent courageux">
+
+        <label>Email</label>
+        <input type="email" placeholder="parent@fatigue.extreme">
+
+        <label>Votre message</label>
+        <textarea placeholder="Expliquez-nous la situation (on ne juge pas)"></textarea>
+
+        <button type="submit">Envoyer le SOS 🚨</button>
+    </form>
+</div>
+
+</body>
+</html>

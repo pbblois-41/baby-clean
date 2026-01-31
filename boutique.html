@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Commande - Baby Clean</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0faff; margin: 0; text-align: center; }
+        header { background: linear-gradient(to right, #0067b8, #00a0e9); padding: 25px; border-bottom: 5px solid #d32f2f; }
+        nav a { color: white; margin: 0 20px; text-decoration: none; font-weight: bold; text-transform: uppercase; }
+        nav a:hover { text-decoration: underline; }
+
+        h1 { color: #d32f2f; margin: 40px 0; }
+
+        .boutique {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding-bottom: 40px;
+        }
+
+        .article {
+            background: white;
+            width: 230px;
+            border-radius: 25px;
+            padding: 20px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+
+        .article:hover { transform: translateY(-10px); }
+
+        h3 { color: #0067b8; }
+        .prix { font-size: 1.5em; color: #d32f2f; margin: 10px 0; }
+
+        button {
+            background-color: #0067b8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        button:hover { background-color: #004a87; }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="index.html">ACCUEIL</a>
+        <a href="equipe.html">NOTRE ÉQUIPE</a>
+        <a href="commande.html">COMMANDE</a>
+        <a href="contact.html">CONTACT</a>
+    </nav>
+</header>
+
+<h1>Boutique Baby Clean 🛒</h1>
+
+<div class="boutique">
+
+    <div class="article">
+        <h3>Couches ultra-résistantes</h3>
+        <p>Testées contre les pires explosions.</p>
+        <div class="prix">5 €</div>
+        <button>Ajouter au panier</button>
+    </div>
+
+    <div class="article">
+        <h3>Biberon indestructible</h3>
+        <p>Survit aux lancers de bébé.</p>
+        <div class="prix">3 €</div>
+        <button>Ajouter au panier</button>
+    </div>
+
+    <div class="article">
+        <h3>Antenne Wi-Fi bébé</h3>
+        <p>Capte Netflix même depuis le parc.</p>
+        <div class="prix">120 €</div>
+        <button>Ajouter au panier</button>
+    </div>
+
+    <div class="article">
+        <h3>Produit Baby Clean</h3>
+        <p>Élimine purée, compote et mystères.</p>
+        <div class="prix">13 €</div>
+        <button>Ajouter au panier</button>
+    </div>
+
+</div>
+
+</body>
+</html>

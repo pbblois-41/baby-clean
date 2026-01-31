@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Commande - Baby Clean</title>
+
+<style>
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: #f0faff;
+    margin: 0;
+    text-align: center;
+}
+
+header {
+    background: linear-gradient(to right, #0067b8, #00a0e9);
+    padding: 25px;
+    border-bottom: 5px solid #d32f2f;
+}
+
+nav a {
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+h1 {
+    color: #d32f2f;
+    margin: 30px 0;
+}
+
+.boutique {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.article {
+    background: white;
+    width: 230px;
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+    transition: transform 0.3s;
+}
+
+.article:hover {
+    transform: translateY(-8px);
+}
+
+.article img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.prix {
+    color: #d32f2f;
+    font-size: 1.4em;
+    margin: 10px 0;
+}
+
+button {
+    background-color: #0067b8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.panier {
+    background: white;
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 25px;
+    border-radius: 25px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.total {
+    font-size: 1.6em;
+    color: #0067b8;
+    margin: 10px 0;
+}
+
+.reduc {
+    background-color: #4caf50;
+    margin-top: 10px;
+}
+
+.valider {
+    background-color: #d32f2f;
+    margin-top: 15px;
+    font-size: 1.2em;
+}
+
+.pop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #0067b8;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 30px;
+    display: none;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 Musique douce -->
+<audio autoplay loop>
+    <source src="musique.mp3" type="audio/mpeg">
+</audio>
+
+<header>
+<nav>
+    <a href="index.html">ACCUEIL</a>
+    <a href="equipe.html">NOTRE ÉQUIPE</a>
+    <a href="commande.html">COMMANDE</a>
+    <a href="contact.html">CONTACT</a>
+</nav>
+</header>
+
+<h1>Boutique Baby Clean 🛒</h1>
+
+<div class="boutique">
+
+    <div class="article">
+        <img src="couches.jpg" alt="Couches">
+        <h3>Couches ultra-résistantes</h3>
+        <p>Contre les pires explosions.</p>
+        <div class="prix">5 €</div>
+        <button onclick="ajouter(5)">Ajouter</button>
+    </div>
+
+    <div class="article">
+        <img src="biberon.jpg" alt="Biberon">
+        <h3>Biberon indestructible</h3>
+        <p>Survit aux lancers de bébé.</p>
+        <div class="prix">3 €</div>
+        <button onclick="ajouter(3)">Ajouter</button>
+    </div>
+
+    <div class="article">
+        <img src="wifi.jpg" alt="Wifi bébé">
+        <h3>Antenne Wi-Fi bébé</h3>
+        <p>Netflix même au parc.</p>
+        <div class="prix">120 €</div>
+        <button onclick="ajouter(120)">Ajouter</button>
+    </div>
+
+    <div class="article">
+        <img src="produit.jpg" alt="Produit BabyClean">
+        <h3>Produit Baby Clean</h3>
+        <p>Élimine purée et mystères.</p>
+        <div class="prix">13 €</div>
+        <button onclick="ajouter(13)">Ajouter</button>
+    </div>
+
+</div>
+
+<div class="panier">
+    <h2>🧺 Panier</h2>
+    <p>Articles : <strong><span id="count">0</span></strong></p>
+    <div class="total"><span id="total">0</span> €</div>
+
+    <button class="reduc" onclick="reduction()">😴 Bébé dort (-10%)</button><br>
+    <button class="valider" onclick="valider()">💳 Payer par CB</button>
+</div>
+
+<div class="pop" id="pop">🍼 Article ajouté !</div>
+
+<!-- 🔊 Son de caisse -->
+<audio id="caisse">
+    <source src="caisse.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+let total = 0;
+let count = 0;
+let reducActive = false;
+
+function ajouter(prix) {
+    total += prix;
+    count++;
+
+    document.getElementById("total").textContent = total.toFixed(2);
+    document.getElementById("count").textContent = count;
+
+    const pop = document.getElementById("pop");
+    pop.style.display = "block";
+    setTimeout(() => pop.style.display = "none", 1200);
+
+    if (count === 6) {
+        alert("👶 Bébé a ajouté des articles sans autorisation !");
+    }
+}
+
+function reduction() {
+    if (!reducActive && total > 0) {
+        total *= 0.9;
+        reducActive = true;
+        alert("😴 Réduction activée ! Bébé dort enfin.");
+        document.getElementById("total").textContent = total.toFixed(2);
+    }
+}
+
+function valider() {
+    if (total === 0) {
+        alert("🍼 Ajoutez au moins un article !");
+        return;
+    }
+
+    let numero = prompt("💳 Entrez votre numéro de carte (16 chiffres)");
+    let code = prompt("🔒 Entrez votre code secret");
+
+    if (numero && code) {
+        document.getElementById("caisse").play();
+
+        localStorage.setItem("total", total.toFixed(2));
+        localStorage.setItem("articles", count);
+
+        setTimeout(() => {
+            window.location.href = "facture.html";
+        }, 1500);
+    } else {
+        alert("❌ Paiement annulé par le bébé.");
+    }
+}
+</script>
+
+</body>
+</html>

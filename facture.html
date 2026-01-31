@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Facture - Baby Clean</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f0faff;
+    margin: 0;
+    padding: 40px;
+}
+
+.facture {
+    background: white;
+    max-width: 900px;
+    margin: auto;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.entete {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 4px solid #0067b8;
+    padding-bottom: 20px;
+}
+
+.entete h1 {
+    margin: 0;
+    color: #0067b8;
+}
+
+.entete p {
+    margin: 4px 0;
+    font-size: 0.95em;
+}
+
+.info {
+    margin-top: 25px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+th {
+    background: #0067b8;
+    color: white;
+    padding: 12px;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.resume {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.resume td {
+    padding: 10px;
+}
+
+.label {
+    text-align: right;
+    font-weight: bold;
+}
+
+.value {
+    text-align: right;
+}
+
+.total-final {
+    font-size: 1.8em;
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    align-items: center;
+}
+
+.signature {
+    text-align: center;
+}
+
+.signature img {
+    width: 140px;
+}
+
+.cachet {
+    border: 3px dashed #d32f2f;
+    color: #d32f2f;
+    padding: 15px;
+    border-radius: 50%;
+    font-weight: bold;
+    text-align: center;
+    transform: rotate(-10deg);
+}
+
+.qr {
+    text-align: center;
+}
+
+.qr img {
+    width: 120px;
+}
+
+.actions {
+    text-align: center;
+    margin-top: 30px;
+}
+
+button {
+    padding: 12px 30px;
+    font-size: 1.1em;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.print {
+    background: #0067b8;
+    color: white;
+}
+
+.retour {
+    background: #4caf50;
+    color: white;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 Musique douce -->
+<audio autoplay loop>
+    <source src="musique.mp3" type="audio/mpeg">
+</audio>
+
+<div class="facture">
+
+<!-- EN-TÊTE -->
+<div class="entete">
+    <div>
+        <h1>BabyClean</h1>
+        <p>126 Bis Avenue de Vendôme</p>
+        <p>41000 Blois – France</p>
+        <p>TVA intracommunautaire : FR 99 123 456 789</p>
+        <p>SIRET : 987 654 321 00042</p>
+    </div>
+    <div style="text-align:right;">
+        <p><strong>Facture n°</strong> BC-2026-042</p>
+        <p><strong>Date :</strong> <span id="date"></span></p>
+    </div>
+</div>
+
+<!-- CLIENT -->
+<div class="info">
+    <p><strong>Client :</strong> Parent très fatigué</p>
+</div>
+
+<!-- TABLE DES LIGNES -->
+<table>
+<thead>
+<tr>
+    <th>Désignation</th>
+    <th>Qté</th>
+    <th>Montant (€)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>Articles BabyClean (sélection boutique)</td>
+    <td><span id="articles"></span></td>
+    <td><span id="articlesPrix"></span></td>
+</tr>
+<tr>
+    <td>Frais de transport express</td>
+    <td>1</td>
+    <td>163.00</td>
+</tr>
+<tr>
+    <td>POY – Intervention équipe BabyClean</td>
+    <td>1</td>
+    <td>200.00</td>
+</tr>
+</tbody>
+</table>
+
+<!-- RÉCAP -->
+<table class="resume">
+<tr>
+    <td class="label">Sous-total HT :</td>
+    <td class="value"><span id="ht"></span> €</td>
+</tr>
+<tr>
+    <td class="label">TVA (18,6 %) :</td>
+    <td class="value"><span id="tva"></span> €</td>
+</tr>
+<tr>
+    <td class="label total-final">TOTAL TTC :</td>
+    <td class="value total-final"><span id="ttc"></span> €</td>
+</tr>
+</table>
+
+<!-- SIGNATURE / CACHET / QR -->
+<div class="footer">
+
+<div class="signature">
+    <p><strong>Responsable BabyClean</strong></p>
+    <img src="signature.png" alt="Signature">
+    <p>Jean-Michel Propreté</p>
+</div>
+
+<div class="cachet">
+    BABYCLEAN<br>
+    PAYÉ ✔
+</div>
+
+<div class="qr">
+    <p><strong>Paiement validé</strong></p>
+    <img src="qr.png" alt="QR Code paiement">
+</div>
+
+</div>
+
+<!-- ACTIONS -->
+<div class="actions">
+    <button class="print" onclick="window.print()">🖨️ Imprimer</button>
+    <button class="retour" onclick="window.location.href='commande.html'">
+        ↩ Retour à la boutique
+    </button>
+</div>
+
+</div>
+
+<script>
+const articles = parseInt(localStorage.getItem("articles")) || 0;
+const prixArticles = parseFloat(localStorage.getItem("total")) || 0;
+
+const transport = 163;
+const poy = 200;
+const tvaTaux = 0.186;
+
+const ht = prixArticles + transport + poy;
+const tva = ht * tvaTaux;
+const ttc = ht + tva;
+
+document.getElementById("articles").textContent = articles;
+document.getElementById("articlesPrix").textContent = prixArticles.toFixed(2);
+document.getElementById("ht").textContent = ht.toFixed(2);
+document.getElementById("tva").textContent = tva.toFixed(2);
+document.getElementById("ttc").textContent = ttc.toFixed(2);
+document.getElementById("date").textContent = new Date().toLocaleDateString();
+</script>
+
+</body>
+</html>
