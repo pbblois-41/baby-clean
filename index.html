@@ -1,45 +1,169 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Baby Clean - L'expert Propreté</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        /* Le CSS : On utilise les couleurs de ton logo */
-        body { font-family: 'Arial Black', sans-serif; background-color: #f0faff; margin: 0; text-align: center; color: #333; }
-        header { background: linear-gradient(to bottom, #0067b8, #00a0e9); padding: 30px; border-bottom: 8px solid #d32f2f; }
-        nav a { color: white; margin: 0 20px; text-decoration: none; font-size: 1.2em; border: 2px solid white; padding: 10px 20px; border-radius: 25px; transition: 0.3s; }
-        nav a:hover { background-color: white; color: #0067b8; }
-        .hero { padding: 50px; }
-        .logo { max-width: 450px; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3)); transition: transform 0.5s; }
-        .logo:hover { transform: scale(1.05) rotate(2deg); }
-        h1 { color: #d32f2f; font-size: 3.5em; text-transform: uppercase; margin-top: 30px; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #f4f9ff; 
+            margin: 0; 
+            color: #333; 
+        }
+
+        /* Header */
+        header { 
+            background: #ffffff; 
+            padding: 15px 0; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav a { 
+            color: #0067b8; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 0.9em; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        nav a:hover { color: #d32f2f; }
+
+        /* Hero Section */
+        .hero { 
+            background: linear-gradient(135deg, #0067b8 0%, #00a0e9 100%);
+            padding: 40px 20px 80px 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .logo { 
+            max-width: 250px; 
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+
+        h1 { font-size: 2.5em; margin: 10px 0; font-weight: 800; text-transform: uppercase;}
+
+        /* Statistiques */
+        .stats-container {
+            max-width: 900px;
+            margin: -40px auto 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .stat-card {
+            background: white;
+            flex: 1;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 4px solid #d32f2f;
+        }
+
+        .stat-card h2 { color: #0067b8; margin: 0; font-size: 1.8em; }
+        .stat-card p { font-size: 0.8em; color: #666; margin: 5px 0 0; font-weight: bold; text-transform: uppercase;}
+
+        /* Footer & Réseaux Sociaux */
+        footer {
+            padding: 40px;
+            background: white;
+            color: #888;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        .social-links {
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: #0067b8;
+            font-size: 1.8em;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #d32f2f;
+            transform: translateY(-3px);
+            display: inline-block;
+        }
+
+        .copyright { font-size: 0.85em; }
     </style>
 </head>
 <body>
 
-
 <header>
-   <nav>
-    <a href="index.html">ACCUEIL</a>
-    <a href="equipe.html">NOTRE ÉQUIPE</a>
-    <a href="commande.html">COMMANDE</a>
-    <a href="contact.html">CONTACT</a>
-</nav>
-
-
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="equipe.html">Équipe</a>
+        <a href="commande.html">Boutique</a>
+        <a href="contact.html">Contact</a>
+    </nav>
 </header>
 
 <div class="hero">
     <img src="logo.jpg" alt="Baby Clean Logo" class="logo">
-    <h1>Nettoyage de choc !</h1>
-    <p style="font-size: 1.5em;">Le seul service capable de nettoyer un salon après un goûter d'anniversaire en 12 secondes.</p>
+    <h1>Expertise Propreté</h1>
+    <p>Intervention d'élite pour restaurer l'ordre après le passage de vos petits monstres.</p>
 </div>
 
-</body>
+<div class="stats-container">
+    <div class="stat-card">
+        <h2>12s</h2>
+        <p>Record de nettoyage</p>
+    </div>
+    <div class="stat-card">
+        <h2>99%</h2>
+        <p>Tâches éliminées</p>
+    </div>
+    <div class="stat-card">
+        <h2>+400</h2>
+        <p>Doudous sauvés</p>
+    </div>
+</div>
 
-<audio autoplay loop>
+<footer>
+    <div class="social-links">
+        <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+    </div>
+    <div class="copyright">
+        &copy; 2026 Baby Clean - Solutions professionnelles pour parents exigeants.
+    </div>
+</footer>
+
+<audio id="bgMusic" loop>
     <source src="musique.mp3" type="audio/mpeg">
 </audio>
 
+<script>
+    document.body.addEventListener('click', function() {
+        const audio = document.getElementById('bgMusic');
+        if (audio.paused) { audio.play(); }
+    }, { once: true });
+</script>
+
+</body>
 </html>
